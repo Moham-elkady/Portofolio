@@ -502,62 +502,38 @@
     }
 
     /* ── Skills ── */
-    .skills-section .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 28px;
+    .skill-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 12px;
+      margin-top: 8px;
     }
 
-    .skill-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--accent-glow);
-      border: 1px solid rgba(88,166,255,0.15);
-      padding: 8px 16px;
-      border-radius: 100px;
-      font-size: 14px;
-      font-weight: 500;
+    .skill-card-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 12px;
+      text-align: center;
       transition: all 0.3s;
       cursor: default;
     }
 
-    .skill-tag:hover {
-      background: rgba(88,166,255,0.25);
+    .skill-card-item:hover {
       border-color: var(--accent);
-      transform: translateY(-2px);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px var(--card-shadow);
     }
 
-    .skill-tag i { color: var(--accent); font-size: 14px; }
+    .skill-card-item i {
+      font-size: 28px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
 
-    .skill-bar-group { margin-top: 16px; }
-
-    .skill-bar-item { margin-bottom: 16px; }
-
-    .skill-bar-item .sb-head {
-      display: flex;
-      justify-content: space-between;
-      font-size: 14px;
+    .skill-card-item .s-label {
+      font-size: 13px;
       font-weight: 500;
-      margin-bottom: 6px;
-    }
-
-    .skill-bar-item .sb-head span:last-child { color: var(--accent); }
-
-    .skill-bar-track {
-      height: 6px;
-      background: var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-
-    .skill-bar-fill {
-      height: 100%;
-      width: 0;
-      border-radius: 4px;
-      background: var(--gradient);
-      transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     /* ── Tools ── */
@@ -858,7 +834,7 @@
   </div>
   <div class="hero-stats">
     <div class="hero-stat">
-      <div class="num" data-count="2">0</div>
+      <div class="num" data-count="4">0</div>
       <div class="label">Projects</div>
     </div>
     <div class="hero-stat">
@@ -893,32 +869,14 @@
 <section id="skills" class="skills-section">
   <h2 class="section-title"><i class="fas fa-code"></i> Skills</h2>
   <div class="card fade-in">
-    <div class="skills-grid">
-      <span class="skill-tag"><i class="fas fa-bug"></i> Penetration Testing</span>
-      <span class="skill-tag"><i class="fas fa-globe"></i> Web Development</span>
-      <span class="skill-tag"><i class="fab fa-linux"></i> Linux</span>
-      <span class="skill-tag"><i class="fas fa-network-wired"></i> Networking</span>
-      <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
-      <span class="skill-tag"><i class="fas fa-shield"></i> Burp Suite</span>
-      <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
-    </div>
-    <div class="skill-bar-group">
-      <div class="skill-bar-item">
-        <div class="sb-head"><span>Penetration Testing</span><span>85%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
-      </div>
-      <div class="skill-bar-item">
-        <div class="sb-head"><span>Web Development</span><span>80%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
-      </div>
-      <div class="skill-bar-item">
-        <div class="sb-head"><span>Linux &amp; Networking</span><span>75%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
-      </div>
-      <div class="skill-bar-item">
-        <div class="sb-head"><span>JavaScript / MySQL</span><span>70%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div>
-      </div>
+    <div class="skill-cards">
+      <div class="skill-card-item"><i class="fas fa-bug"></i><div class="s-label">Pen Testing</div></div>
+      <div class="skill-card-item"><i class="fas fa-globe"></i><div class="s-label">Web Dev</div></div>
+      <div class="skill-card-item"><i class="fab fa-linux"></i><div class="s-label">Linux</div></div>
+      <div class="skill-card-item"><i class="fas fa-network-wired"></i><div class="s-label">Networking</div></div>
+      <div class="skill-card-item"><i class="fab fa-js"></i><div class="s-label">JavaScript</div></div>
+      <div class="skill-card-item"><i class="fas fa-shield"></i><div class="s-label">Burp Suite</div></div>
+      <div class="skill-card-item"><i class="fas fa-database"></i><div class="s-label">MySQL</div></div>
     </div>
   </div>
 
@@ -953,11 +911,16 @@
     <div class="cert-card">
       <i class="fas fa-network-wired"></i>
       <h4>Network Infrastructure</h4>
-      <p>CCNA — In Progress</p>
+      <p>CCNA</p>
     </div>
     <div class="cert-card">
       <i class="fab fa-js"></i>
       <h4>JavaScript Course</h4>
+      <p>Scrimba</p>
+    </div>
+    <div class="cert-card">
+      <i class="fab fa-python"></i>
+      <h4>Python Course</h4>
       <p>Scrimba</p>
     </div>
   </div>
@@ -986,6 +949,28 @@
     </div>
     <p>Practicing XSS, SQL Injection, and web exploitation using PortSwigger labs.</p>
     <span class="card-meta"><i class="fas fa-tag"></i> Burp Suite &bull; Web Security</span>
+  </div>
+
+  <div class="card fade-in">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+      <div style="width:40px;height:40px;border-radius:10px;background:var(--accent-glow);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <i class="fas fa-link" style="color:var(--accent);font-size:18px"></i>
+      </div>
+      <h3 style="margin:0">Lead Tracker</h3>
+    </div>
+    <p>Chrome extension for tracking leads with local storage support.</p>
+    <a href="https://github.com/Moham-elkady/Lead-Tracker" target="_blank" class="card-meta" style="text-decoration:none"><i class="fab fa-github"></i> View on GitHub</a>
+  </div>
+
+  <div class="card fade-in">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+      <div style="width:40px;height:40px;border-radius:10px;background:var(--accent-glow);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <i class="fas fa-calculator" style="color:var(--accent);font-size:18px"></i>
+      </div>
+      <h3 style="margin:0">Passenger Counter</h3>
+    </div>
+    <p>Simple passenger counter app built as a learning project.</p>
+    <a href="https://github.com/Moham-elkady/passenger-counter" target="_blank" class="card-meta" style="text-decoration:none"><i class="fab fa-github"></i> View on GitHub</a>
   </div>
 </section>
 
@@ -1178,21 +1163,6 @@
       });
     }, { threshold: 0.5 });
     nums.forEach(n => obs.observe(n));
-  })();
-
-  /* ── Skill bars ── */
-  (function() {
-    const fills = document.querySelectorAll('.skill-bar-fill');
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const el = e.target;
-          el.style.width = el.getAttribute('data-width') + '%';
-          obs.unobserve(el);
-        }
-      });
-    }, { threshold: 0.3 });
-    fills.forEach(f => obs.observe(f));
   })();
 
   /* ── Nav highlight on scroll ── */
